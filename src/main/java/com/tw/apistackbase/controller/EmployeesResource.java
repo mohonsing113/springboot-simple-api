@@ -32,5 +32,10 @@ public class EmployeesResource {
         return EmployeeDB.create(employee);
     }
 
+    @RequestMapping(value = "update/{id}", method = RequestMethod.PUT)
+    public Employee update(@PathVariable int id, @RequestBody Employee employee){
+        return EmployeeDB.update(id, employee);
+    }
+
 
 }

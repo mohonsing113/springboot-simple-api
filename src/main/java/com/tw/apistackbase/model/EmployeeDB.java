@@ -25,4 +25,9 @@ public class EmployeeDB {
         employees.put(currentId, employee);
         return employee;
     }
+
+    public static Employee update(int id, Employee employee) {
+        employees.put(id, employee);
+        return employee;
+    }
 }
