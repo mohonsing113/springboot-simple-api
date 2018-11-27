@@ -1,11 +1,15 @@
 package com.tw.apistackbase.controller;
 
+import com.tw.apistackbase.model.Employee;
+import com.tw.apistackbase.model.EmployeeDB;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.*;
 import java.util.logging.*;
 
 /**
@@ -17,10 +21,9 @@ public class EmployeesResource {
 
     private final Logger log = Logger.getLogger(this.getClass().getName());
 
-    @GetMapping(path = "/{userName}", produces = {"application/json"})
-    public ResponseEntity<String> getAll(@PathVariable String userName) {
-
-        return ResponseEntity.ok("Hello:" + userName);
+    @RequestMapping(method = RequestMethod.GET)
+    public List<Employee> list(){
+        return EmployeeDB.list();
     }
 
 
