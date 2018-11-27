@@ -5,6 +5,7 @@ import com.tw.apistackbase.model.EmployeeDB;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,6 +25,11 @@ public class EmployeesResource {
     @RequestMapping(method = RequestMethod.GET)
     public List<Employee> list(){
         return EmployeeDB.list();
+    }
+
+    @RequestMapping(value = "create", method = RequestMethod.POST)
+    public Employee create(@RequestBody Employee employee){
+        return EmployeeDB.create(employee);
     }
 
 

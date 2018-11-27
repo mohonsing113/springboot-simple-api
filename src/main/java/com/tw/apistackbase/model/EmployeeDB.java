@@ -5,6 +5,7 @@ import java.util.*;
 public class EmployeeDB {
 
     private static Map<Integer, Employee> employees = new HashMap<Integer, Employee>();
+    static int currentId=4;
 
     static {
         employees.put(0, new Employee(0, "Xiaoming", 20, "Male"));
@@ -16,5 +17,12 @@ public class EmployeeDB {
 
     public static List<Employee> list(){
         return new ArrayList<Employee>(employees.values());
+    }
+
+    public static Employee create(Employee employee) {
+        currentId+=1;
+        employee.setId(currentId);
+        employees.put(currentId, employee);
+        return employee;
     }
 }
