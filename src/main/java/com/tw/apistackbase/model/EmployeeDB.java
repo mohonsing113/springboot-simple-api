@@ -30,4 +30,8 @@ public class EmployeeDB {
         employees.put(id, employee);
         return employee;
     }
+
+    public static Employee delete(int id) {
+        return employees.remove(id);
+    }
 }

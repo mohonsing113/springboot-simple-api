@@ -37,5 +37,10 @@ public class EmployeesResource {
         return EmployeeDB.update(id, employee);
     }
 
+    @RequestMapping(value = "delete/{id}", method = RequestMethod.DELETE)
+    public Employee delete(@PathVariable int id){
+        return EmployeeDB.delete(id);
+    }
+
 
 }
